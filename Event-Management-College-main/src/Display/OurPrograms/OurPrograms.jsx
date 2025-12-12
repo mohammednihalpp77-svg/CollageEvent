@@ -82,7 +82,7 @@ const OurPrograms = () => {
               transition={{ duration: 0.3 }}
               onClick={() => navigate(`/event/${item.id}`)}
               key={item.id}
-              className="flex flex-col items-center rounded-xl bg-gradient-to-br from-neutral-800 via-gray-800 to-gray-900 border border-gray-700 shadow hover:shadow-xl transition cursor-pointer"
+              className="flex flex-col items-center rounded-xl bg-gradient-to-br from-neutral-800 via-gray-800 to-gray-900 border border-gray-700 shadow hover:shadow-xl transition cursor-pointer "
             >
               {/* IMAGE */}
               <div className="w-full overflow-hidden rounded-t-xl relative">

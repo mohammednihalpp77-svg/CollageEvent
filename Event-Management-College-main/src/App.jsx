@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Display } from "./Display/display";
 import ProgramDetails from "./Display/ProgramDetails/ProgramDetails";
 import FooterContents from "./Display/Footer/FooterContents";
@@ -18,12 +18,14 @@ import AdminRegistrations from "./pages/admin/Registrations";
 import AdminAttendence from "./pages/admin/Attendence";
 
 function App() {
+  const {pathname} = useLocation()
+  const hideLayout = pathname.includes("admin") || pathname.includes("teacher");
   return (
     <div className="bg-gradient-to-br from-neutral-900 via-gray-900 to-black
 ">
       
       <div className="w-full">
-        <NavBar />
+        {!hideLayout && <NavBar />}
       </div>
         <Routes>
           <Route path="/" element={<Display />} />
@@ -44,7 +46,8 @@ function App() {
             <Route path='attendence' element={<AdminAttendence/>}/>
          </Route>
         </Routes>
-      <FooterContents />
+        {!hideLayout && <FooterContents />}
+      
     </div>
   );
 }
